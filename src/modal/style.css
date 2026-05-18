@@ -1,0 +1,179 @@
+:root {
+  --tb-primary: var(--primary, oklch(1 0 0));
+  --tb-primary-foreground: var(--primary-foreground, oklch(0 0 0));
+  --tb-secondary: var(--secondary, oklch(0.25 0 0));
+  --tb-popover: var(--popover, oklch(0.18 0 0));
+  --tb-popover-foreground: var(--popover-foreground, oklch(1 0 0));
+  --tb-muted-foreground: var(--muted-foreground, oklch(0.708 0 0));
+  --tb-border: var(--border, oklch(0.32 0 0));
+  --tb-radius: var(--radius, 0.8rem);
+}
+
+.tb-modal-overlay {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  z-index: 999;
+}
+
+.tb-modal {
+  width: 400px;
+  border: 2px solid var(--tb-border);
+  border-radius: var(--tb-radius);
+  background-color: var(--tb-popover);
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: popup 0.1s ease-in-out;
+}
+
+.tb-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tb-modal-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--tb-popover-foreground);
+}
+
+.tb-modal-close-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--tb-popover-foreground);
+  padding: 3px;
+}
+
+.tb-modal-close-button:hover {
+  opacity: 0.8;
+}
+
+.tb-modal-linear {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tb-modal-type-button {
+  flex: 1;
+  border: 2px solid var(--tb-border);
+  border-radius: var(--tb-radius);
+  background-color: var(--tb-secondary);
+  padding: 0.5rem;
+  color: var(--tb-popover-foreground);
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tb-modal-type-button:hover {
+  opacity: 0.8;
+}
+
+.tb-modal-type-button.selected {
+  background-color: var(--tb-primary);
+  color: var(--tb-primary-foreground);
+}
+
+.tb-modal-textarea {
+  width: 100%;
+  height: 100px;
+  border: 2px solid var(--tb-border);
+  border-radius: var(--tb-radius);
+  background-color: var(--tb-secondary);
+  padding: 0.8rem;
+  color: var(--tb-popover-foreground);
+  outline: none;
+  resize: none;
+}
+
+.tb-modal-footer {
+  display: flex;
+}
+
+.tb-modal-submit-button {
+  width: 100%;
+  border: 2px solid var(--tb-border);
+  border-radius: var(--tb-radius);
+  background-color: var(--tb-primary);
+  color: var(--tb-primary-foreground);
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.1s ease-in-out;
+}
+
+.tb-modal-submit-button:hover {
+  opacity: 0.8;
+}
+
+.tb-modal-submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tb-modal-sended {
+  width: 400px;
+  border: 2px solid var(--tb-border);
+  border-radius: var(--tb-radius);
+  background-color: var(--tb-popover);
+  padding: 4rem 2rem 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tb-modal-sended-icon {
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--tb-border);
+  border-radius: 100%;
+  color: var(--tb-popover-foreground);
+  animation: popup 0.15s ease-in-out;
+}
+
+.tb-modal-sended-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--tb-popover-foreground);
+  text-align: center;
+}
+
+.tb-modal-sended-message {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--tb-muted-foreground);
+  text-align: center;
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
